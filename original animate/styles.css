@@ -1,0 +1,56 @@
+nav{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 9999;
+}
+
+article{
+	position: relative;
+	height: 100vh;
+	width: 100vw;
+	padding-top: 1em;
+	overflow: auto;
+}
+
+article > *:first-child,
+article [data-animate]{
+	position: absolute;
+	display: block;
+	transition: all 1s;
+}
+
+article > *:first-child{
+	height: 0;
+	overflow: hidden;
+	font-size: 4em;
+}
+article:target > *:first-child{
+	height: 1em;
+	transform: translate(0%, -100%);
+}
+
+
+article [data-animate="picture"]{
+	right: 10vw;
+	top: 100vw;
+	width: 20vw;
+	height: 20vw;
+	background: blue;
+	opacity: 0;
+	transition-delay: 1s
+}
+article:target [data-animate="picture"]{
+	top: 0;
+	opacity: 1;
+}
+
+article [data-animate="text"]{
+	left: -100vw;
+	top: 40vh;
+	transition-delay: .5s;
+}
+article:target [data-animate="text"]{
+	left: 20vw;
+	color: green;
+}
